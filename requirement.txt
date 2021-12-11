@@ -1,0 +1,4 @@
+Django==3.2.7
+pylatexenc-2.10
+Pillow-8.4.0
+

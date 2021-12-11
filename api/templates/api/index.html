@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+
+<body style="margin-top: 30px;margin-left: 30px;">
+    <div>
+        <h1 style="border-color: cyan; text-align: center;">
+            Latex Design
+        </h1>
+    </div>
+    <div style="text-align: center;">
+        <form action="{% url " api:createquestion" %}" method="post" autocomplete="on"
+            style="display: inline-block; text-align: right; border: 1px solid black; padding: 5px;"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            <label> Question : </label>
+            <textarea name="question" cols="70" rows="5"></textarea> <br> <br>
+            <label> Clue : </label>
+            <textarea name="clue" cols="70" rows="5"></textarea> <br> <br>
+            <label> Solution : </label>
+            <textarea name="solution" cols="70" rows="5"></textarea> <br> <br>
+            <label> Answer : </label>
+            <textarea name="answer" cols="70" rows="5"></textarea> <br> <br>
+            <label> Correct answer : </label>
+            <textarea name="correctanswer" cols="70" rows="5"></textarea> <br> <br>
+            <label> Image : </label>
+            <input type="file" name="imagedata" id=""> <br>
+
+            <input type="submit" value="Submit"
+                style="border: 1px solid rgba(200, 219, 30, 0.521); background-color: rgb(109, 47, 255); padding:5px; border-radius: 2px; cursor: pointer;" />
+        </form>
+    </div>
+    <div>
+        <table>
+            {% for row in data %}
+            <tr>
+                <td>
+                    {{ row }}
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</body>
+
+</html>
